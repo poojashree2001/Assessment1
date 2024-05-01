@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class TwoSum {
+
+    public static int[] findTwoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[] {i, j}; // Return the indices of the two numbers
+                }
+            }
+        }
+        return new int[] {-1, -1}; // Return -1, -1 if no solution is found
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Read the size of the array
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+        int[] nums = new int[n];
+
+        // Read the elements of the array
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
+        // Read the target value
+        System.out.print("Enter the target sum: ");
+        int target = scanner.nextInt();
+
+        // Find two sum indices
+        int[] indices = findTwoSum(nums, target);
+
+        // Output the result
+        if (indices[0] == -1) {
+            System.out.println("No solution found.");
+        } else {
+            System.out.println("Indices of two numbers are: " + indices[0] + " and " + indices[1]);
+        }
+
+        scanner.close();
+    }
+}
+
+
